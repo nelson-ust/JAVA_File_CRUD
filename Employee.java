@@ -7,7 +7,6 @@ public class Employee implements Serializable{
             this.empno = empno;
             this.ename =ename;
             this.salary = salary;
-    
         }
         public String toString(){
             return empno+" "+ename+" "+salary;
