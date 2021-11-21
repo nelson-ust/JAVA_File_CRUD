@@ -6,15 +6,18 @@ class EmployeeDemo{
         Scanner input =new Scanner(System.in);
         Scanner s = new Scanner(System.in);
         Scanner d = new Scanner(System.in);
+        //Create the file
         File file = new File("employee.txt");
         ArrayList<Employee> empList =new ArrayList<Employee>();
         ObjectOutputStream oos= null;
         ObjectInputStream ois = null;
         ListIterator li = null;
+       //Check if file exist 
         if(file.isFile()){
             ois = new ObjectInputStream(new FileInputStream(file));
             empList = (ArrayList<Employee>)ois.readObject();
         }
+        //Choose option and loop through until the user selects 0 to exit the app
         do{
 
           System.out.println("1-Insert");
@@ -26,11 +29,14 @@ class EmployeeDemo{
           System.out.println("0-Exit");
           System.out.print("Enter Your Choice : ");
           choice =input.nextInt();
-
+          
+          //Switch between the the different options provided by the user
           switch(choice){
               case 1:
+                  // Prompt user for the number of employee records to created
                   System.out.println("How many employee do you want to add : ");
                   int n =input.nextInt();
+                  //Enter employee records for the number of records to be created by te user.
                   for(int i =0; i<n; i++){
                       System.out.print("Enter Employee No: ");
                       int empno =input.nextInt();
@@ -185,6 +191,6 @@ class EmployeeDemo{
                   }
               break;
           }
-        }while(choice !=0);
+        }while(choice !=0); //End the loop
     }
 }
