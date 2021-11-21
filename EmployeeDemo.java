@@ -5,6 +5,7 @@ class EmployeeDemo{
         int choice = -1;
         Scanner input =new Scanner(System.in);
         Scanner s = new Scanner(System.in);
+        Scanner d = new Scanner(System.in);
         File file = new File("employee.txt");
         ArrayList<Employee> empList =new ArrayList<Employee>();
         ObjectOutputStream oos= null;
@@ -34,13 +35,16 @@ class EmployeeDemo{
                       System.out.print("Enter Employee No: ");
                       int empno =input.nextInt();
 
-                      System.out.print("Enter Employee Name: ");
-                      String ename = s.nextLine();
+                      System.out.print("Enter Employee Firstname: ");
+                      String fname = s.nextLine();
+
+                      System.out.print("Enter Employee Lastname: ");
+                      String lname = s.nextLine();
 
                       System.out.print("Enter Employee salary : ");
-                      int salary =input.nextInt();
+                      double salary =input.nextDouble();
 
-                      empList.add(new Employee(empno,ename,salary));
+                      empList.add(new Employee(empno,fname,lname,salary));
                    
                   }
                   oos =new ObjectOutputStream(new FileOutputStream(file));
@@ -133,12 +137,15 @@ class EmployeeDemo{
                         while(li.hasNext()){
                             Employee e = (Employee)li.next();
                             if(e.empno == empno){
-                                System.out.println("Enter New Employee name : ");
-                                String ename = s.nextLine();
+                                System.out.println("Enter New Employee Firstname : ");
+                                String fname = s.nextLine();
+
+                                System.out.println("Enter New Employee Lastname : ");
+                                String lname = s.nextLine();
 
                                 System.out.println("Enter new Salary : ");
                                 int sal = input.nextInt();
-                                li.set(new Employee(empno,ename,sal));
+                                li.set(new Employee(empno,fname,lname,sal));
                                 found = true;
                             }
                         }
